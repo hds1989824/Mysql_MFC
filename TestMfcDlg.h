@@ -47,4 +47,5 @@ public:
 	afx_msg void OnBnClickedButton2();
 	CString Mysql_Query_Ruslt;
 	
+	afx_msg void OnEnChangeEdit7();
 };

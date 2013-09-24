@@ -55,6 +55,7 @@ BEGIN_MESSAGE_MAP(CTestMfcDlg, CDialog)
 	ON_EN_CHANGE(IDC_EDIT2, &CTestMfcDlg::OnEnChangeEdit2)
 	ON_EN_CHANGE(IDC_EDIT3, &CTestMfcDlg::OnEnChangeEdit3)
 	ON_BN_CLICKED(IDC_BUTTON2, &CTestMfcDlg::OnBnClickedButton2)
+	ON_EN_CHANGE(IDC_EDIT7, &CTestMfcDlg::OnEnChangeEdit7)
 END_MESSAGE_MAP()
 
 
@@ -154,7 +155,6 @@ void CTestMfcDlg::OnBnClickedButton2()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	sqltest sql;
-	 MYSQL mysql;
 	sql.mysql__init();//初始化
 
  
@@ -197,13 +197,13 @@ void CTestMfcDlg::OnBnClickedButton2()
 	{
 		printf("当前时间为：\n");
 		sql.GetNowTime();
-		cout<<"您的查询为："<<w<<";"<<endl;
-		cout<<"查询结果："<<sql.row[0]<<endl;
 		break;
 		//cin.get();
 	}
 	UpdateData(TRUE);   //从控件读入参数
-	Mysql_Query_Ruslt=sql.row[0];
+
+	 Mysql_Query_Ruslt=sql.row[0]; 
+ 
 	UpdateData(FALSE);
   
 	/*
@@ -225,4 +225,14 @@ void CTestMfcDlg::OnBnClickedButton2()
 
 
 
+}
+
+void CTestMfcDlg::OnEnChangeEdit7()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，则它将不会
+	// 发送该通知，除非重写 CDialog::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
 }
