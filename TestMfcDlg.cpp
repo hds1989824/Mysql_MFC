@@ -7,6 +7,8 @@
 #include "TestCalc.h"
 #include "sqltest.h"
 #include <WinSock2.h>
+#include <Windows.h>
+#include <stdio.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -200,10 +202,13 @@ void CTestMfcDlg::OnBnClickedButton2()
 		break;
 		//cin.get();
 	}
+	SYSTEMTIME systime;
+	GetLocalTime(&systime);
+    CString NowTime=CString(systime.wDay)+CString(systime.wHour)+CString(systime.wMinute);
 	UpdateData(TRUE);   //从控件读入参数
 
-	 Mysql_Query_Ruslt=sql.row[0]; 
- 
+	 //Mysql_Query_Ruslt=sql.row[0]; 
+   Mysql_Query_Ruslt=NowTime;
 	UpdateData(FALSE);
   
 	/*
